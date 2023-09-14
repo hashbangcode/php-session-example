@@ -3,7 +3,7 @@
 // Start the session to include the session variables.
 session_start();
 
-// Unset the session variables.
+// Unset any session variables created for this session.
 session_unset();
 
 // Destroy the session.

@@ -31,3 +31,5 @@ foreach ($userData as $id => $userDatum) {
     $stmt->bind_param("sss", ...$userDatum);
     $stmt->execute();
 }
+
+echo 'Authentication example table (re)created and the default users installed.' . PHP_EOL;
