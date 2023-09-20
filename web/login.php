@@ -31,7 +31,7 @@ function authenticate(string $username, string $password, mysqli $mysqli):string
     }
 
     // Search the database for the user based on their username.
-    $result = $stmt = $mysqli->prepare("SELECT id, name FROM users WHERE username = ?;");
+    $stmt = $mysqli->prepare("SELECT id, name, password FROM users WHERE username = ?;");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC) ?: null;
@@ -40,15 +40,15 @@ function authenticate(string $username, string $password, mysqli $mysqli):string
         return 'Username or password is incorrect.';
     }
 
-    // Validate the password.
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-    if (password_verify($password, $passwordHash) === false) {
+    $result = reset($result);
+
+    // Validate the supplied password against the hashed password in the database.
+    if (password_verify($password, $result['password']) === false) {
         return 'Username or password is incorrect.';
     }
 
     // The password validates correctly, so add their username to
     // the $_SESSION variable, which will log the user in.
-    $result = reset($result);
     $_SESSION['username'] = $username;
     $_SESSION['name'] = htmlspecialchars($result['name']);
     $_SESSION['user_id'] = $result['id'];
