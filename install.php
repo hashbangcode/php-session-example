@@ -1,9 +1,12 @@
 <?php
 
+// Include the database connection.
 require_once 'database_connection.php';
 
+// Drop the 'users' table (if it exists).
 $mysqli->query("DROP TABLE IF EXISTS `users`;");
 
+// Create the 'users' table.
 $sql = "CREATE TABLE `users` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `username` varchar(255) NOT NULL COMMENT 'The username of the user.',
@@ -13,6 +16,7 @@ $sql = "CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Storage for user authentication details.';";
 $mysqli->query($sql);
 
+// Generate two test users.
 $userData = [
     [
         'user1',
