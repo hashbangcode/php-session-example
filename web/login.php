@@ -23,7 +23,7 @@ if (isset($_SESSION['user_id'])) {
  * @return bool
  *   True if the user account was authenticated.
  */
-function checkAuthenticationDetails(string $username, string $password, mysqli $mysqli): string
+function checkAuthenticationDetails(string $username, string $password, mysqli $mysqli): bool
 {
   // Make sure the username and password fields have something in them.
   if ($username === '' && $password === '') {
