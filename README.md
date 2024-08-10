@@ -29,3 +29,7 @@ Log into this project with the following credentials.
 |----------|------------|
 | user1    | password   |
 | user2    | letmein    |
+
+## More Information
+
+Please see [Creating An Authentication System With PHP and MariaDB](https://www.hashbangcode.com/article/creating-authentication-system-php-and-mariadb) for a detailed breakdown on how this project works and ideas for further improvement.
