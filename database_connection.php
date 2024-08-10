@@ -11,10 +11,10 @@ $databaseName = "db";
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 // Connect to the database.
-$mysqli = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName);
-
-if (!$mysqli) {
-    // If
-    echo "Database connection failed.";
-    die();
+try {
+  $mysqli = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+} catch (mysqli_sql_exception $e) {
+  // An error occurred when attempting to connect to the database.
+  print('MySQLi connection error: ' . $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine());
+  exit();
 }
