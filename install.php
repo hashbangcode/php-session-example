@@ -30,8 +30,9 @@ $userData = [
     ],
 ];
 
+$stmt = $mysqli->prepare("INSERT INTO `users`(`username`, `password`, `name`) VALUES (?, ?, ?);");
+
 foreach ($userData as $id => $userDatum) {
-    $stmt = $mysqli->prepare("INSERT INTO `users`(`username`, `password`, `name`) VALUES (?, ?, ?);");
     $stmt->bind_param("sss", ...$userDatum);
     $stmt->execute();
 }
