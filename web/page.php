@@ -17,17 +17,8 @@ if (!isset($_SESSION['user_id'])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     </head>
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap py-3 mb-4 border-bottom">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <span class="fs-4">Authentication Example</span>
-                </a>
+    <?php include '../header.php'; ?>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href=/logout.php#" class="nav-link">Log out</a></li>
-                </ul>
-            </header>
-        </div>
         <div class="container">
             <h1>Inner Page</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac quam sit amet neque maximus dictum.</p>
