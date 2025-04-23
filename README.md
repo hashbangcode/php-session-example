@@ -14,7 +14,7 @@ to.
 - Run `ddev start` to start the project. If you are starting for the first time
 then this will download everything you need before starting the project.
 - Once everything is installed you can visit https://phpsession.ddev.site/ or
-run `ddev launch`, which will open a browser and .
+run `ddev launch`, which will open a browser and take you to that URL.
 - To install the test database (and some test users) you need to log into the
 docker container using `ddev ssh` and run `php install.php`.
 - You can now log in using the credentials below.
